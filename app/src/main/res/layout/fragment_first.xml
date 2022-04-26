@@ -6,45 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <TextView
-        android:id="@+id/textview_first"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="Your app need location to know your address"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <Button
         android:id="@+id/btnAllow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Continue"
-        app:layout_constraintEnd_toEndOf="@+id/textview_first"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/textview_first"
-        app:layout_constraintTop_toBottomOf="@+id/textview_first" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
+    <com.transferwise.sequencelayout.SequenceLayout
+        android:id="@+id/seq"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="154dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        android:text="GIVE PERMISSION"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toTopOf="@+id/textview_first"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_marginTop="8dp">
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:anchor="30 Nov"
+            app:title="First step" />
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Second step" />
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:active="true"
+            app:anchor="Today"
+            app:subtitle="Subtitle of this step."
+            app:title="Third step"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Title" />
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Fourth step" />
+
+        <com.transferwise.sequencelayout.SequenceStep
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:anchor="2 Dec"
+            app:title="Fifth step" />
+    </com.transferwise.sequencelayout.SequenceLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

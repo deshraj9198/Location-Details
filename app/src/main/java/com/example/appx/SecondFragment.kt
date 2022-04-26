@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.appx.databinding.FragmentSecondBinding
 import com.google.android.gms.location.*
 import com.google.android.material.snackbar.Snackbar
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 
 class SecondFragment : Fragment(){
 
@@ -42,6 +43,44 @@ class SecondFragment : Fragment(){
                 }
             }
         }
+
+        binding.carousel.registerLifecycle(lifecycle)
+        val list = mutableListOf<CarouselItem>()
+        list.add(
+            CarouselItem(
+                imageUrl = "https://images.unsplash.com/photo-1532581291347-9c39cf10a73c?w=1080",
+                caption = "Photo by Aaron Wu on Unsplash"
+            )
+        )
+        list.add(
+            CarouselItem(
+                imageUrl = "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080"
+            )
+        )
+// Image URL with header
+        val headers = mutableMapOf<String, String>()
+        headers["header_key"] = "header_value"
+
+        list.add(
+            CarouselItem(
+                imageUrl = "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1080",
+                headers = headers
+            )
+        )
+        list.add(
+            CarouselItem(
+                imageDrawable = R.drawable.image_1,
+                caption = "Click by Desh Raj"
+            )
+        )
+
+// Just image drawable
+        list.add(
+            CarouselItem(
+                imageDrawable = R.drawable.image_2
+            )
+        )
+        binding.carousel.setData(list)
     }
     fun createLocationRequest() {
          locationRequest = LocationRequest.create()?.apply {
